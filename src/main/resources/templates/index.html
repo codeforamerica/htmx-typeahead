@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>htmx typeahead</title>
+    <script defer src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  </head>
+  <body style="grid-template-columns: 1fr min(45rem,98%) 1fr; font-size: 1rem;">
+    <main>
+      <header>
+        <h1>
+          Search Providers
+          <span class="htmx-indicator">
+            <img src="/img/bars.svg" alt="loading" /> Searching...
+          </span>
+        </h1>
+      </header>
+      <input class="form-control" type="search"
+        name="q" placeholder="Begin Typing To Search Providers..."
+        hx-post="/search"
+        hx-trigger="input changed delay:500ms, search"
+        hx-target="#search-results"
+        hx-indicator=".htmx-indicator">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody id="search-results">
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
+

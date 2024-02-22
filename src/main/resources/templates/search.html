@@ -1,0 +1,10 @@
+<tr th:if="${!#lists.isEmpty(searchedProviders)}" th:each="provider : ${searchedProviders}">
+  <td th:text="${provider.getId()}"></td>
+  <td th:text="${provider.getName()}"></td>
+  <td th:text="${provider.getEmail()}"></td>
+  <td th:text="${provider.getPhone()}"></td>
+  <td th:text="${provider.getAddress()}"></td>
+</tr>
+<tr th:if="${#lists.isEmpty(searchedProviders)}">
+  <td colspan="3">No results 😞😢</td>
+</tr>
